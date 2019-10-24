@@ -25,4 +25,7 @@ typedef struct {
 	int	nbombe;
 } board_t;
 
+
+board_t *new_state(int height, int width, int nbombe);
+void	manip_cursor(board_t *board, char move);
 #endif /* BOARD_H */
