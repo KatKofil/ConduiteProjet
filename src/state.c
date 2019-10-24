@@ -9,7 +9,7 @@ board_t *new_state(int height, int width, int nbombe){
     board->nbombe = nbombe;
     board->cursor.x = board->dims.w / 2;
     board->cursor.y = board->dims.h / 2;    
-    board->board = (cell_t *)malloc(sizeof(cell_t) * board->dims.w * board->dims.h);
+    board->board = (cell_t *)calloc(sizeof(cell_t) , board->dims.w * board->dims.h);
     return board;
 }
 
@@ -31,5 +31,17 @@ void    manip_cursor(board_t *board, char move){
 
     default:
         break;
+    }
+    if (board->cursor.y < 0){
+        board->cursor.y = 0;
+    }
+    if (board->cursor.y > board->dims.h){
+        board->cursor.y = board->dims.h;
+    }
+    if (board->cursor.x < 0){
+        board->cursor.x = 0;
+    }
+    if (board->cursor.x > board->dims.w){
+        board->cursor.x = board->dims.w;
     }
 }
