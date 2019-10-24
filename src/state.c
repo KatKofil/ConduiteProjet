@@ -12,3 +12,24 @@ board_t *new_state(int height, int width, int nbombe){
     board->board = (cell_t *)malloc(sizeof(cell_t) * board->dims.w * board->dims.h);
     return board;
 }
+
+void    manip_cursor(board_t *board, char move){
+    switch (move)
+    {
+    case 'w':
+        board->cursor.y += 1;
+        break;
+    case 's':
+        board->cursor.y -= 1;
+        break;
+    case 'a':
+        board->cursor.x -= 1;
+        break;
+    case 'd':
+        board->cursor.x += 1;
+        break;
+
+    default:
+        break;
+    }
+}
