@@ -22,6 +22,7 @@ typedef struct {
 	cell_t *board;
 	point_t cursor;
 	dim_t dims;
+	int	nbombe;
 } board_t;
 
 #endif /* BOARD_H */
