@@ -72,4 +72,8 @@ board_t *new_state(int height, int width, int nbombe);
 
 /// \brief Déplace le curseur selon la direction donnée
 void	manip_cursor(board_t *board, char move);
+
+void	flag(board_t *board);
+
+void	active(board_t *board);
 #endif /* BOARD_H */
