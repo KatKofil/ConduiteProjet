@@ -1,7 +1,37 @@
+/*
+    This file is part of MineSweeper.
+
+    MineSweeper is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MineSweeper is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MineSweeper.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/**
+ * \file state.c
+ * \brief Fonctions manipulant le state du board
+ */
+
 #include <board.h>
 #include <stdlib.h>
 #include <time.h>
 
+/*! \brief Place bombe on the board
+ *  \param board is a pointer \ref board_t
+ *  \param pos is a struct \ref point_t
+ *  \return if a bombe is placed
+ * 
+ *  Use position to place bombe and update number of close bombe
+ *  for neighboors
+ */
 int place_bomb(board_t *board, point_t pos){
     typedef cell_t line[board->dims.w];
     typedef line boardarr[board->dims.h];
@@ -28,6 +58,15 @@ int place_bomb(board_t *board, point_t pos){
     return 0;
 }
 
+/*! \brief Init the board
+
+ *  \param width is the width of the board
+ *  \param height is the height of the board
+ *  \param nbombe is the number of bombe to place
+ *  \return the board initialised
+ *  
+ *  Take input param to init the board and call place_bombe. 
+ */
 board_t *new_state(int width, int height, int nbombe){
     board_t *board;
     point_t pos; 
