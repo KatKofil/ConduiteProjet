@@ -12,7 +12,7 @@
 ////////////////////////////////////////
 // FONCTION AFFICHER LA GRILLE DE JEU //
 ////////////////////////////////////////
-void AfficheJeu(board_t* board)
+void AfficheJeu(board_t *board)
 {
     printf("\n\n");
     // Une ligne qui contient le nombre de mines présentes
@@ -21,10 +21,10 @@ void AfficheJeu(board_t* board)
 	printf("	:)		");
 	// le nombre de flags placés
 	printf(" drapeaux placés : %d	\n",0);
-
-    for(int i=0;i<16;i++)
+	printf("%d",board->dims.h);
+    for(int i=0;i<board->dims.h;i++)
 		{
-		for(int j=0;j<30;j++)
+		for(int j=0;j<board->dims.w;j++)
 			{                
 				printf("x");
 			}
@@ -34,9 +34,7 @@ void AfficheJeu(board_t* board)
 
 int main()
 {     
-	struct board_t board;
-	(*board).cursor = null;
-	(*board).dims = null;
-	AfficheJeu(&board);
+	board_t *board = new_state(3,3,3); 
+	AfficheJeu(board);
 	return 0;
 }
