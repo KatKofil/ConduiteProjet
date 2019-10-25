@@ -74,5 +74,6 @@ int main(int ac, char **av) {
 	}
 
 	reveal(state);
+	free_board(state);
 	return 0;
 }

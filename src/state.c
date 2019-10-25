@@ -139,3 +139,8 @@ int		endgame(board_t *self) {
 		return 1;
 	return 0;
 }
+
+void    free_board(board_t *board){
+    free(board->board);
+    free(board);
+}

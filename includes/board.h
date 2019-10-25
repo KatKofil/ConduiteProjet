@@ -83,5 +83,6 @@ int		endgame(board_t *self);
 
 void affichage(board_t *self);
 void reveal(board_t *self);
+void free_board(board_t *board);
 
 #endif /* BOARD_H */
