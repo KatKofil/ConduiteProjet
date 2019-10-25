@@ -10,9 +10,9 @@ int place_bomb(board_t *board, point_t pos){
         (*arr)[pos.y][pos.x].bombe = 1;
     
         const point_t neighboors[] = {
-            {pos.x - 1, pos.y - 1}, {pos.x, pos.y - 1}, {pos.x + 1, pos.y - 1},
-            {pos.x - 1, pos.y}                       , {pos.x + 1, pos.y},
-            {pos.x - 1, pos.y + 1}, {pos.x, pos.y + 1}, {pos.x + 1, pos.y + 1},
+            {{pos.x - 1, pos.y - 1}}, {{pos.x, pos.y - 1}}, {{pos.x + 1, pos.y - 1}},
+            {{pos.x - 1, pos.y}}                          , {{pos.x + 1, pos.y}},
+            {{pos.x - 1, pos.y + 1}}, {{pos.x, pos.y + 1}}, {{pos.x + 1, pos.y + 1}},
         };
         
         for (int i = 0; i < 8; ++i) {
@@ -28,17 +28,15 @@ int place_bomb(board_t *board, point_t pos){
     return 0;
 }
 
-
-board_t *new_state(int height, int width, int nbombe){
+board_t *new_state(int width, int height, int nbombe){
     board_t *board;
-    time_t t;
     point_t pos; 
 
-    srand((unsigned) time(&t));
+    srand(time(0));
 
-    board = malloc(sizeof(board_t));
-    board->dims.w = width;
-    board->dims.h = height;
+    board = calloc(1, sizeof(board_t));
+    board->dims.w = width > 0 ? width : 15;
+    board->dims.h = height > 0 ? height : 15;
     board->nbombe = nbombe;
     board->cursor.x = board->dims.w / 2;
     board->cursor.y = board->dims.h / 2;    
@@ -53,39 +51,39 @@ board_t *new_state(int height, int width, int nbombe){
 
 void    manip_cursor(board_t *board, char move){
     switch (move) {
-    case 'w':
-        board->cursor.y += 1;
-        break;
-    case 's':
+    case 'z':
         board->cursor.y -= 1;
         break;
-    case 'a':
-        board->cursor.x -= 1;
+    case 's':
+        board->cursor.y += 1;
         break;
     case 'd':
         board->cursor.x += 1;
         break;
+    case 'q':
+        board->cursor.x -= 1;
+        break;
     default:
         break;
     }
-    if (board->cursor.y < 0){
+    if (board->cursor.y < 0)
         board->cursor.y = 0;
-    }
-    if (board->cursor.y > board->dims.h){
-        board->cursor.y = board->dims.h;
-    }
-    if (board->cursor.x < 0){
+    if (board->cursor.y >= board->dims.h)
+        board->cursor.y = board->dims.h - 1;
+    if (board->cursor.x < 0)
         board->cursor.x = 0;
-    }
-    if (board->cursor.x > board->dims.w){
-        board->cursor.x = board->dims.w;
-    }
+    if (board->cursor.x >= board->dims.w)
+        board->cursor.x = board->dims.w - 1;
 }
 
 void    flag(board_t *board) {
     typedef cell_t line[board->dims.w];
     typedef line boardarr[board->dims.h];
     boardarr *arr = (void*)board->board;
+	if ((*arr)[board->cursor.y][board->cursor.x].flagged)
+		board->flagged--;
+	else
+		board->flagged++;
     (*arr)[board->cursor.y][board->cursor.x].flagged ^= 1;
 }
 
@@ -99,14 +97,15 @@ void    active_helper(board_t *self, point_t pos) {
     if ((*arr)[pos.y][pos.x].active)
         return;
     (*arr)[pos.y][pos.x].active = 1;
+	self->activated++;
 
     if((*arr)[pos.y][pos.x].n)
         return;
     
     const point_t neighboors[] = {
-        {pos.x - 1, pos.y - 1}, {pos.x, pos.y - 1}, {pos.x + 1, pos.y - 1},
-        {pos.x - 1, pos.y}                       , {pos.x + 1, pos.y},
-        {pos.x - 1, pos.y + 1}, {pos.x, pos.y + 1}, {pos.x + 1, pos.y + 1},
+        {{pos.x - 1, pos.y - 1}}, {{pos.x, pos.y - 1}}, {{pos.x + 1, pos.y - 1}},
+        {{pos.x - 1, pos.y}}                       , {{pos.x + 1, pos.y}},
+        {{pos.x - 1, pos.y + 1}}, {{pos.x, pos.y + 1}}, {{pos.x + 1, pos.y + 1}},
     };
 
     for (int i = 0; i < 8; ++i) {
@@ -119,6 +118,24 @@ void    active_helper(board_t *self, point_t pos) {
     }
 }
 
-void    active(board_t *board) {
-    active_helper(board, board->cursor);    
+void    active(board_t *self) {
+    typedef cell_t line[self->dims.w];
+    typedef line boardarr[self->dims.h];
+    boardarr *arr = (void*)self->board;
+
+	point_t pos = self->cursor;
+    if ((*arr)[pos.y][pos.x].bombe) {
+		(*arr)[pos.y][pos.x].active = 1;
+		self->defeat = 1;
+        return;
+	}
+    active_helper(self, self->cursor);    
+}
+
+int		endgame(board_t *self) {
+	if (self->defeat)
+		return -1;
+	if (self->dims.w * self->dims.h - self->activated == self->nbombe)
+		return 1;
+	return 0;
 }

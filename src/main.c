@@ -1,10 +1,26 @@
+#include <termios.h>
+#include <board.h>
+#include <stdio.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-#include<termios.h>
+struct termios termios_o;
 
-char getkey(){
+void cleanup() {
+	tcsetattr(0, 0, &termios_o);
+}
+
+char getkey() {
 	int a;
 	a = getchar();
 
+	if (a == -1) {
+		perror("getchar");
+		exit(1);
+	}
+	if (a == 3)
+		exit(1);	
 	if(a == 0x1b) {
 		a = getchar();
 		if(a == 0x5b){
@@ -24,40 +40,39 @@ char getkey(){
 		}
 
 	}
-	else{
-		return a;
-	}
-
+	return a;
 }
+	
+int main(int ac, char **av) {
+	struct termios termios_m; 
+	struct winsize w;
+	int nbombs = 10;
 
-int main(int ac, char **av){
-	struct termios termios_o, termios_m; 
-	puts(av[1]);
+	if (ac == 2)
+		nbombs = atoi(av[1]);
 
-	termios_m = tcgetattr(0, &termios_o); //etat du terminal
+	setvbuf(stdout, 0, _IOFBF, 0);
+	atexit(cleanup);
+
+	tcgetattr(0, &termios_o); //etat du terminal
 	cfmakeraw(&termios_m);
 	tcsetattr(0, 0, &termios_m); // modifie l'etat terminal 
 
-	struct winsize w;
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-	board_t *state = new_state(w.ws_row, w.ws_col, atoi(av[1]));
+	board_t *state = new_state(w.ws_col / 2, w.ws_row - 2, nbombs);
 
-	while(end(state) == 0){
+	while(endgame(state) == 0){
 		affichage(state);
 
 		char key = getkey();
 		if (key == ' ')
-			action(state);
+			active(state);
 		if (key == 'f')
 			flag(state);
 		if (key =='z' || key =='d' || key =='s' || key =='q')
-			mouvement(state, key);
+			manip_cursor(state, key);
 	}
 
 	reveal(state);
-	tcsetattr(0, 0, &termios_o);
-
-
-
 	return 0;
 }

@@ -63,6 +63,8 @@ typedef struct {
 	cell_t *board; /*!< Pointeur vers l'état des cellules */
 	point_t cursor; /*!< Position du curseur */
 	int defeat;
+	int activated;
+	int flagged;
 	dim_t dims; /*!< Dimension du tableau */
 	int	nbombe; /*!< Nombre de bombes */
 } board_t;
@@ -76,4 +78,10 @@ void	manip_cursor(board_t *board, char move);
 void	flag(board_t *board);
 
 void	active(board_t *board);
+
+int		endgame(board_t *self);
+
+void affichage(board_t *self);
+void reveal(board_t *self);
+
 #endif /* BOARD_H */
