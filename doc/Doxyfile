@@ -793,6 +793,7 @@ WARN_LOGFILE           =
 
 INPUT                  = ../src \
 						 ../include \
+						 ../includes \
 						 ../test
 
 # This tag can be used to specify the character encoding of the source files
