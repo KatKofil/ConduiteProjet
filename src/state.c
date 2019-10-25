@@ -45,3 +45,21 @@ void    manip_cursor(board_t *board, char move){
         board->cursor.x = board->dims.w;
     }
 }
+
+void    flag(board_t *board){
+    typedef cell_t line[board->dims.w];
+    typedef line boardarr[board->dims.h];
+    boardarr *arr = (void*)board->board;
+    if ((*arr)[board->cursor.y][board->cursor.x].flagged == 1){
+        (*arr)[board->cursor.y][board->cursor.x].flagged = 0;
+        return;
+    }
+    (*arr)[board->cursor.y][board->cursor.x].flagged = 1;
+}
+
+void    active(board_t *board){
+    typedef cell_t line[board->dims.w];
+    typedef line boardarr[board->dims.h];
+    boardarr *arr = (void*)board->board;
+    (*arr)[board->cursor.y][board->cursor.x].active = 1;
+}

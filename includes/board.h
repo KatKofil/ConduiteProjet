@@ -4,7 +4,8 @@
 typedef struct {
 	int active : 1;
 	int flagged : 1;
-	int n : 6;
+	int bombe : 1;
+	int n : 5;
 } __attribute__((packed)) cell_t;
 
 typedef union {
@@ -22,6 +23,7 @@ typedef struct {
 	cell_t *board;
 	point_t cursor;
 	dim_t dims;
+	int defeat;
 	int	nbombe;
 } board_t;
 
