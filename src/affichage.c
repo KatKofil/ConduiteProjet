@@ -21,7 +21,7 @@ void AfficheJeu(board_t *board)
 	printf("	:)		");
 	// le nombre de flags placés
 	printf(" drapeaux placés : %d	\n",0);
-	printf("%d",board->dims.h);
+
     for(int i=0;i<board->dims.h;i++)
 		{
 		for(int j=0;j<board->dims.w;j++)
