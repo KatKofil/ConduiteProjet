@@ -36,7 +36,7 @@ board_t *new_state(int height, int width, int nbombe){
 
     srand((unsigned) time(&t));
 
-    board = (board_t *)malloc(sizeof(board_t *));
+    board = malloc(sizeof(board_t));
     board->dims.w = width;
     board->dims.h = height;
     board->nbombe = nbombe;
