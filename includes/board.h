@@ -5,7 +5,7 @@ typedef struct {
 	int active : 1;
 	int flagged : 1;
 	int n : 6;
-} __attribute__((packed)) cell_t;
+} cell_t;
 
 typedef union {
 	struct {
