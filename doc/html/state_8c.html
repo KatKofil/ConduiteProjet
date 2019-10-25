@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Minesweeper: Référence du fichier state.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Minesweeper
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Sweep some mines</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('state_8c.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier state.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fonctions manipulant le state du board.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="board_8h_source.html">board.h</a>&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de state.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="state_8c__incl.png" border="0" usemap="#state_8c" alt=""/></div>
+<map name="state_8c" id="state_8c">
+<area shape="rect" title="Fonctions manipulant le state du board." alt="" coords="102,5,169,32"/>
+<area shape="rect" href="board_8h.html" title="Définitions des fonctions manipulant le type board_t." alt="" coords="5,80,76,107"/>
+<area shape="rect" title=" " alt="" coords="100,80,171,107"/>
+<area shape="rect" title=" " alt="" coords="195,80,259,107"/>
+</map>
+</div>
+</div>
+<p><a href="state_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a408dde607ec4b3922fdc841b9a2be144"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structboard__t.html">board_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a408dde607ec4b3922fdc841b9a2be144">new_state</a> (int width, int height, int nbombe)</td></tr>
+<tr class="memdesc:a408dde607ec4b3922fdc841b9a2be144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init the board.  <a href="state_8c.html#a408dde607ec4b3922fdc841b9a2be144">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a408dde607ec4b3922fdc841b9a2be144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af863331ba9d5e4da6049f43465b350f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#af863331ba9d5e4da6049f43465b350f4">manip_cursor</a> (<a class="el" href="structboard__t.html">board_t</a> *board, char move)</td></tr>
+<tr class="memdesc:af863331ba9d5e4da6049f43465b350f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change cursor state.  <a href="state_8c.html#af863331ba9d5e4da6049f43465b350f4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af863331ba9d5e4da6049f43465b350f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8deac8f1cde486bd08c377d8671a455"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#ad8deac8f1cde486bd08c377d8671a455">flag</a> (<a class="el" href="structboard__t.html">board_t</a> *board)</td></tr>
+<tr class="memdesc:ad8deac8f1cde486bd08c377d8671a455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change cell's flag state.  <a href="state_8c.html#ad8deac8f1cde486bd08c377d8671a455">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad8deac8f1cde486bd08c377d8671a455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74a83dec2ac31f9f88eaf01661434ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#ab74a83dec2ac31f9f88eaf01661434ad">active</a> (<a class="el" href="structboard__t.html">board_t</a> *self)</td></tr>
+<tr class="memdesc:ab74a83dec2ac31f9f88eaf01661434ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change active cell's state.  <a href="state_8c.html#ab74a83dec2ac31f9f88eaf01661434ad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab74a83dec2ac31f9f88eaf01661434ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a587cd08aeda68153e1b42a1b3b57ead7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#a587cd08aeda68153e1b42a1b3b57ead7">endgame</a> (<a class="el" href="structboard__t.html">board_t</a> *self)</td></tr>
+<tr class="memdesc:a587cd08aeda68153e1b42a1b3b57ead7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change cursor state.  <a href="state_8c.html#a587cd08aeda68153e1b42a1b3b57ead7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a587cd08aeda68153e1b42a1b3b57ead7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abacc668acc856a0e497c712b8f350aaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="state_8c.html#abacc668acc856a0e497c712b8f350aaa">free_board</a> (<a class="el" href="structboard__t.html">board_t</a> *board)</td></tr>
+<tr class="memdesc:abacc668acc856a0e497c712b8f350aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">free the board  <a href="state_8c.html#abacc668acc856a0e497c712b8f350aaa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abacc668acc856a0e497c712b8f350aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fonctions manipulant le state du board. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="state_8c_source.html">state.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ab74a83dec2ac31f9f88eaf01661434ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab74a83dec2ac31f9f88eaf01661434ad">&#9670;&nbsp;</a></span>active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void active </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structboard__t.html">board_t</a> *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change active cell's state. </p>
+<p>Active la cellule du cursor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>is the state of board </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="state_8c_source.html#l00175">175</a> du fichier <a class="el" href="state_8c_source.html">state.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                              {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structcell__t.html">cell_t</a> line[<span class="keyword">self</span>-&gt;dims.w];</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">typedef</span> line boardarr[<span class="keyword">self</span>-&gt;dims.h];</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    boardarr *arr = (<span class="keywordtype">void</span>*)self-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <a class="code" href="unionpoint__t.html">point_t</a> pos = self-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    if ((*arr)[pos.y][pos.x].bombe) {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        (*arr)[pos.y][pos.x].active = 1;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keyword">self</span>-&gt;defeat = 1;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    active_helper(<span class="keyword">self</span>, self-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>);    </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a587cd08aeda68153e1b42a1b3b57ead7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a587cd08aeda68153e1b42a1b3b57ead7">&#9670;&nbsp;</a></span>endgame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int endgame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structboard__t.html">board_t</a> *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change cursor state. </p>
+<p>Défini si la partie est terminée.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>is the state of board </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="state_8c_source.html#l00194">194</a> du fichier <a class="el" href="state_8c_source.html">state.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                               {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span> (self-&gt;<a class="code" href="structboard__t.html#a5da5f709f925b17610301b1908a30b79">defeat</a>)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">if</span> (self-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w * self-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h - self-&gt;<a class="code" href="structboard__t.html#aa66e4426e5dabb26bd0b5be1af1bfa0c">activated</a> == self-&gt;<a class="code" href="structboard__t.html#a25ff40081e8b8a1638e32ae2859fff56">nbombe</a>)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
+</div><!-- fragment --><div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="state_8c_a587cd08aeda68153e1b42a1b3b57ead7_icgraph.png" border="0" usemap="#state_8c_a587cd08aeda68153e1b42a1b3b57ead7_icgraph" alt=""/></div>
+<map name="state_8c_a587cd08aeda68153e1b42a1b3b57ead7_icgraph" id="state_8c_a587cd08aeda68153e1b42a1b3b57ead7_icgraph">
+<area shape="rect" title="Change cursor state." alt="" coords="116,5,199,32"/>
+<area shape="rect" href="board_8h.html#a534d896208d94c3a119f03e3f1c1f48f" title="Affiche la carte révélée." alt="" coords="5,5,68,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad8deac8f1cde486bd08c377d8671a455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8deac8f1cde486bd08c377d8671a455">&#9670;&nbsp;</a></span>flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void flag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structboard__t.html">board_t</a> *&#160;</td>
+          <td class="paramname"><em>board</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change cell's flag state. </p>
+<p>Flagge la cellule du cursor.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>is the state of board </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="state_8c_source.html#l00127">127</a> du fichier <a class="el" href="state_8c_source.html">state.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                             {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structcell__t.html">cell_t</a> line[board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w];</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">typedef</span> line boardarr[board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h];</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    boardarr *arr = (<span class="keywordtype">void</span>*)board-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    if ((*arr)[board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].flagged)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#ada319c149ecf9d277742ce526bf180bb">flagged</a>--;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#ada319c149ecf9d277742ce526bf180bb">flagged</a>++;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    (*arr)[board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].flagged ^= 1;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abacc668acc856a0e497c712b8f350aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abacc668acc856a0e497c712b8f350aaa">&#9670;&nbsp;</a></span>free_board()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_board </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structboard__t.html">board_t</a> *&#160;</td>
+          <td class="paramname"><em>board</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>free the board </p>
+<p>Libère la mémoire du board.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>is the state of board </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="state_8c_source.html#l00207">207</a> du fichier <a class="el" href="state_8c_source.html">state.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                                  {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    free(board-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    free(board);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af863331ba9d5e4da6049f43465b350f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af863331ba9d5e4da6049f43465b350f4">&#9670;&nbsp;</a></span>manip_cursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void manip_cursor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structboard__t.html">board_t</a> *&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>move</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change cursor state. </p>
+<p>Déplace le curseur selon la direction donnée.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>is the state of board </td></tr>
+    <tr><td class="paramname">move</td><td>is the move to apply to board.cursor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="state_8c_source.html#l00096">96</a> du fichier <a class="el" href="state_8c_source.html">state.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                                               {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">switch</span> (move) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;z&#39;</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> -= 1;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> += 1;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;d&#39;</span>:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> += 1;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;q&#39;</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> -= 1;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &lt; 0)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = 0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &gt;= board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h - 1;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &lt; 0)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = 0;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &gt;= board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w - 1;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a408dde607ec4b3922fdc841b9a2be144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a408dde607ec4b3922fdc841b9a2be144">&#9670;&nbsp;</a></span>new_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structboard__t.html">board_t</a>* new_state </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbombe</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Init the board. </p>
+<p>Initialise une nouvelle partie avec les paramètres donnés.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>is the width of the board </td></tr>
+    <tr><td class="paramname">height</td><td>is the height of the board </td></tr>
+    <tr><td class="paramname">nbombe</td><td>is the number of bombe to place </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the board initialised</dd></dl>
+<p>Take input param to init the board and call place_bombe. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="state_8c_source.html#l00070">70</a> du fichier <a class="el" href="state_8c_source.html">state.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                                     {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="structboard__t.html">board_t</a> *board;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="unionpoint__t.html">point_t</a> pos; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    srand(time(0));</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    board = calloc(1, <span class="keyword">sizeof</span>(<a class="code" href="structboard__t.html">board_t</a>));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w = width &gt; 0 ? width : 15;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h = height &gt; 0 ? height : 15;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a25ff40081e8b8a1638e32ae2859fff56">nbombe</a> = nbombe;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w / 2;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h / 2;    </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a> = (<a class="code" href="structcell__t.html">cell_t</a> *)calloc(<span class="keyword">sizeof</span>(<a class="code" href="structcell__t.html">cell_t</a>) , board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w * board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">while</span> (nbombe &gt; 0){</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = rand() % board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.x;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = rand() % board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.y;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        nbombe -= place_bomb(board, pos);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> board;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="astructcell__t_html"><div class="ttname"><a href="structcell__t.html">cell_t</a></div><div class="ttdoc">Représente l'état d'une cellule.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00030">board.h:30</a></div></div>
+<div class="ttc" id="aunionpoint__t_html"><div class="ttname"><a href="unionpoint__t.html">point_t</a></div><div class="ttdoc">Représente un point 2D.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00041">board.h:41</a></div></div>
+<div class="ttc" id="astructboard__t_html_aa66e4426e5dabb26bd0b5be1af1bfa0c"><div class="ttname"><a href="structboard__t.html#aa66e4426e5dabb26bd0b5be1af1bfa0c">board_t::activated</a></div><div class="ttdeci">int activated</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00066">board.h:66</a></div></div>
+<div class="ttc" id="astructboard__t_html"><div class="ttname"><a href="structboard__t.html">board_t</a></div><div class="ttdoc">Représente l'état d'un tableau de jeu.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00062">board.h:62</a></div></div>
+<div class="ttc" id="astructboard__t_html_ada319c149ecf9d277742ce526bf180bb"><div class="ttname"><a href="structboard__t.html#ada319c149ecf9d277742ce526bf180bb">board_t::flagged</a></div><div class="ttdeci">int flagged</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00067">board.h:67</a></div></div>
+<div class="ttc" id="aunionpoint__t_html_a6150e0515f7202e2fb518f7206ed97dc"><div class="ttname"><a href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">point_t::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00043">board.h:43</a></div></div>
+<div class="ttc" id="astructboard__t_html_a47891852778818abe9a1c30e4e715ca3"><div class="ttname"><a href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board_t::board</a></div><div class="ttdeci">cell_t * board</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00063">board.h:63</a></div></div>
+<div class="ttc" id="aunionpoint__t_html_a0a2f84ed7838f07779ae24c5a9086d33"><div class="ttname"><a href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">point_t::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00044">board.h:44</a></div></div>
+<div class="ttc" id="astructboard__t_html_a5da5f709f925b17610301b1908a30b79"><div class="ttname"><a href="structboard__t.html#a5da5f709f925b17610301b1908a30b79">board_t::defeat</a></div><div class="ttdeci">int defeat</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00065">board.h:65</a></div></div>
+<div class="ttc" id="astructboard__t_html_a25ff40081e8b8a1638e32ae2859fff56"><div class="ttname"><a href="structboard__t.html#a25ff40081e8b8a1638e32ae2859fff56">board_t::nbombe</a></div><div class="ttdeci">int nbombe</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00069">board.h:69</a></div></div>
+<div class="ttc" id="astructboard__t_html_af542a1fa003d6ea693acc8b121727392"><div class="ttname"><a href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">board_t::cursor</a></div><div class="ttdeci">point_t cursor</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00064">board.h:64</a></div></div>
+<div class="ttc" id="astructboard__t_html_a6d9f2662f1b1f15ad02b6c276b02b0d2"><div class="ttname"><a href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">board_t::dims</a></div><div class="ttdeci">dim_t dims</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00068">board.h:68</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="state_8c.html">state.c</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
+</body>
+</html>

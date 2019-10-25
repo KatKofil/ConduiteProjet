@@ -1,0 +1,423 @@
+\hypertarget{board_8h}{}\doxysection{Référence du fichier board.\+h}
+\label{board_8h}\index{board.h@{board.h}}
+
+
+Définitions des fonctions manipulant le type \mbox{\hyperlink{structboard__t}{board\+\_\+t}}.  
+
+
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{board_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcell__t}{cell\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Représente l\textquotesingle{}état d\textquotesingle{}une cellule. \end{DoxyCompactList}\item 
+union \mbox{\hyperlink{unionpoint__t}{point\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Représente un point 2D. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structboard__t}{board\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Représente l\textquotesingle{}état d\textquotesingle{}un tableau de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{board_8h_a62899c54cfaab7449e7378b1c39d2627}\label{board_8h_a62899c54cfaab7449e7378b1c39d2627}} 
+typedef \mbox{\hyperlink{unionpoint__t}{point\+\_\+t}} {\bfseries dim\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$ \mbox{\hyperlink{board_8h_ae3e1ec44242b00d792586838d7f3ce6b}{new\+\_\+state}} (int height, int width, int nbombe)
+\begin{DoxyCompactList}\small\item\em Initialise une nouvelle partie avec les paramètres donnés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{board_8h_af863331ba9d5e4da6049f43465b350f4}{manip\+\_\+cursor}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$board, char move)
+\begin{DoxyCompactList}\small\item\em Déplace le curseur selon la direction donnée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{board_8h_ad8deac8f1cde486bd08c377d8671a455}{flag}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$board)
+\begin{DoxyCompactList}\small\item\em Flagge la cellule du cursor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{board_8h_a3dec61e769070feef0cd9d68f1d96e36}{active}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$board)
+\begin{DoxyCompactList}\small\item\em Active la cellule du cursor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{board_8h_a587cd08aeda68153e1b42a1b3b57ead7}{endgame}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$self)
+\begin{DoxyCompactList}\small\item\em Défini si la partie est terminée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{board_8h_a27a9b46c52c916594fe58ed293177059}{affichage}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$self)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}affichage de l\textquotesingle{}état. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{board_8h_a534d896208d94c3a119f03e3f1c1f48f}{reveal}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$self)
+\begin{DoxyCompactList}\small\item\em Affiche la carte révélée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{board_8h_abacc668acc856a0e497c712b8f350aaa}{free\+\_\+board}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$board)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire du board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Définitions des fonctions manipulant le type \mbox{\hyperlink{structboard__t}{board\+\_\+t}}. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{board_8h_a3dec61e769070feef0cd9d68f1d96e36}\label{board_8h_a3dec61e769070feef0cd9d68f1d96e36}} 
+\index{board.h@{board.h}!active@{active}}
+\index{active@{active}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{active()}{active()}}
+{\footnotesize\ttfamily void active (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Active la cellule du cursor. 
+
+Active la cellule du cursor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em self} & is the state of board \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 175 du fichier state.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{175                               \{}
+\DoxyCodeLine{176     \textcolor{keyword}{typedef} \mbox{\hyperlink{structcell__t}{cell\_t}} line[\textcolor{keyword}{self}-\/>dims.w];}
+\DoxyCodeLine{177     \textcolor{keyword}{typedef} line boardarr[\textcolor{keyword}{self}-\/>dims.h];}
+\DoxyCodeLine{178     boardarr *arr = (\textcolor{keywordtype}{void}*)self-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}};}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \mbox{\hyperlink{unionpoint__t}{point\_t}} pos = self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}};}
+\DoxyCodeLine{181     if ((*arr)[pos.y][pos.x].bombe) \{}
+\DoxyCodeLine{182         (*arr)[pos.y][pos.x].active = 1;}
+\DoxyCodeLine{183         \textcolor{keyword}{self}-\/>defeat = 1;}
+\DoxyCodeLine{184         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186     active\_helper(\textcolor{keyword}{self}, self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}});    }
+\DoxyCodeLine{187 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{board_8h_a27a9b46c52c916594fe58ed293177059}\label{board_8h_a27a9b46c52c916594fe58ed293177059}} 
+\index{board.h@{board.h}!affichage@{affichage}}
+\index{affichage@{affichage}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{affichage()}{affichage()}}
+{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}affichage de l\textquotesingle{}état. 
+
+Gère l\textquotesingle{}affichage de l\textquotesingle{}état.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em self} & est un pointeur \mbox{\hyperlink{structboard__t}{board\+\_\+t}}\\
+\hline
+\end{DoxyParams}
+Affiche l\textquotesingle{}état du tableau 
+
+Définition à la ligne 55 du fichier affichage.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                               \{}
+\DoxyCodeLine{56     \textcolor{keyword}{typedef} \mbox{\hyperlink{structcell__t}{cell\_t}} line[\textcolor{keyword}{self}-\/>dims.w];}
+\DoxyCodeLine{57     \textcolor{keyword}{typedef} line board[\textcolor{keyword}{self}-\/>dims.h];}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     printf(\textcolor{stringliteral}{"\(\backslash\)033[2J"});}
+\DoxyCodeLine{60     fflush(stdout);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     printf(\textcolor{stringliteral}{"\%*s\(\backslash\)r\(\backslash\)n"}, self-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w + 3, \textcolor{stringliteral}{"🤔"});}
+\DoxyCodeLine{63     \textcolor{comment}{//}}
+\DoxyCodeLine{64     board *b = (\textcolor{keywordtype}{void}*)self-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *target = \textcolor{stringliteral}{" "};}
+\DoxyCodeLine{67     for (\textcolor{keywordtype}{int} y = 0; y < \textcolor{keyword}{self}-\/>dims.h; ++y) \{}
+\DoxyCodeLine{68         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \textcolor{keyword}{self}-\/>dims.w; ++x) \{}
+\DoxyCodeLine{69             \mbox{\hyperlink{structcell__t}{cell\_t}} c = (*b)[y][x];}
+\DoxyCodeLine{70             \textcolor{keywordtype}{int} r = !!(c.\mbox{\hyperlink{structcell__t_aa5805c5e936174e5092bf7a5b78e7e64}{active}});}
+\DoxyCodeLine{71             r += !!(c.\mbox{\hyperlink{structcell__t_ada319c149ecf9d277742ce526bf180bb}{flagged}}) * 2;}
+\DoxyCodeLine{72             \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{structcell__t_a257bda2b28166f6d19bbbe78a7f900d4}{bombe}})}
+\DoxyCodeLine{73                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{\textcolor{stringliteral}{"＃"}, 0, \textcolor{stringliteral}{"🏳 "} \}[r];}
+\DoxyCodeLine{74             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{75                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{ \textcolor{stringliteral}{"＃"}, \mbox{\hyperlink{affichage_8c_aaa1ab34c15675f2a844b5c09a3ab0e9e}{digits}}[c.\mbox{\hyperlink{structcell__t_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}], \textcolor{stringliteral}{"🏳 "} \}[r];}
+\DoxyCodeLine{76             \}}
+\DoxyCodeLine{77             \textcolor{keywordflow}{if} (self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} == x \&\&}
+\DoxyCodeLine{78                 self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} == y)}
+\DoxyCodeLine{79                 printf(\textcolor{stringliteral}{"\(\backslash\)033[7m\%s\(\backslash\)033[0m"}, target);}
+\DoxyCodeLine{80             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{81                 printf(\textcolor{stringliteral}{"\%s"}, target);}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83         puts(\textcolor{stringliteral}{"\(\backslash\)r"});}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85     fflush(stdout);}
+\DoxyCodeLine{86 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{board_8h_a587cd08aeda68153e1b42a1b3b57ead7}\label{board_8h_a587cd08aeda68153e1b42a1b3b57ead7}} 
+\index{board.h@{board.h}!endgame@{endgame}}
+\index{endgame@{endgame}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{endgame()}{endgame()}}
+{\footnotesize\ttfamily int endgame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Défini si la partie est terminée. 
+
+Défini si la partie est terminée.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em self} & is the state of board \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 194 du fichier state.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{194                                \{}
+\DoxyCodeLine{195     \textcolor{keywordflow}{if} (self-\/>\mbox{\hyperlink{structboard__t_a5da5f709f925b17610301b1908a30b79}{defeat}})}
+\DoxyCodeLine{196         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{197     \textcolor{keywordflow}{if} (self-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w * self-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.h -\/ self-\/>\mbox{\hyperlink{structboard__t_aa66e4426e5dabb26bd0b5be1af1bfa0c}{activated}} == self-\/>\mbox{\hyperlink{structboard__t_a25ff40081e8b8a1638e32ae2859fff56}{nbombe}})}
+\DoxyCodeLine{198         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{199     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{200 \}}
+
+\end{DoxyCode}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{board_8h_a587cd08aeda68153e1b42a1b3b57ead7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{board_8h_ad8deac8f1cde486bd08c377d8671a455}\label{board_8h_ad8deac8f1cde486bd08c377d8671a455}} 
+\index{board.h@{board.h}!flag@{flag}}
+\index{flag@{flag}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{flag()}{flag()}}
+{\footnotesize\ttfamily void flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{board }\end{DoxyParamCaption})}
+
+
+
+Flagge la cellule du cursor. 
+
+Flagge la cellule du cursor.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em board} & is the state of board \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 127 du fichier state.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127                              \{}
+\DoxyCodeLine{128     \textcolor{keyword}{typedef} \mbox{\hyperlink{structcell__t}{cell\_t}} line[board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w];}
+\DoxyCodeLine{129     \textcolor{keyword}{typedef} line boardarr[board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.h];}
+\DoxyCodeLine{130     boardarr *arr = (\textcolor{keywordtype}{void}*)board-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}};}
+\DoxyCodeLine{131     if ((*arr)[board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}}][board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}}].flagged)}
+\DoxyCodeLine{132         board-\/>\mbox{\hyperlink{structboard__t_ada319c149ecf9d277742ce526bf180bb}{flagged}}-\/-\/;}
+\DoxyCodeLine{133     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{134         board-\/>\mbox{\hyperlink{structboard__t_ada319c149ecf9d277742ce526bf180bb}{flagged}}++;}
+\DoxyCodeLine{135     (*arr)[board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}}][board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}}].flagged \string^= 1;}
+\DoxyCodeLine{136 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{board_8h_abacc668acc856a0e497c712b8f350aaa}\label{board_8h_abacc668acc856a0e497c712b8f350aaa}} 
+\index{board.h@{board.h}!free\_board@{free\_board}}
+\index{free\_board@{free\_board}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{free\_board()}{free\_board()}}
+{\footnotesize\ttfamily void free\+\_\+board (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{board }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire du board. 
+
+Libère la mémoire du board.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em board} & is the state of board \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 207 du fichier state.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{207                                   \{}
+\DoxyCodeLine{208     free(board-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}});}
+\DoxyCodeLine{209     free(board);}
+\DoxyCodeLine{210 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{board_8h_af863331ba9d5e4da6049f43465b350f4}\label{board_8h_af863331ba9d5e4da6049f43465b350f4}} 
+\index{board.h@{board.h}!manip\_cursor@{manip\_cursor}}
+\index{manip\_cursor@{manip\_cursor}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{manip\_cursor()}{manip\_cursor()}}
+{\footnotesize\ttfamily void manip\+\_\+cursor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{board,  }\item[{char}]{move }\end{DoxyParamCaption})}
+
+
+
+Déplace le curseur selon la direction donnée. 
+
+Déplace le curseur selon la direction donnée.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em board} & is the state of board \\
+\hline
+{\em move} & is the move to apply to board.\+cursor \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 96 du fichier state.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96                                                \{}
+\DoxyCodeLine{97     \textcolor{keywordflow}{switch} (move) \{}
+\DoxyCodeLine{98     \textcolor{keywordflow}{case} \textcolor{charliteral}{'z'}:}
+\DoxyCodeLine{99         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} -\/= 1;}
+\DoxyCodeLine{100         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{101     \textcolor{keywordflow}{case} \textcolor{charliteral}{'s'}:}
+\DoxyCodeLine{102         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} += 1;}
+\DoxyCodeLine{103         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{104     \textcolor{keywordflow}{case} \textcolor{charliteral}{'d'}:}
+\DoxyCodeLine{105         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} += 1;}
+\DoxyCodeLine{106         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{107     \textcolor{keywordflow}{case} \textcolor{charliteral}{'q'}:}
+\DoxyCodeLine{108         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} -\/= 1;}
+\DoxyCodeLine{109         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{110     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{111         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{112     \}}
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} (board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} < 0)}
+\DoxyCodeLine{114         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} = 0;}
+\DoxyCodeLine{115     \textcolor{keywordflow}{if} (board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} >= board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.h)}
+\DoxyCodeLine{116         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} = board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.h -\/ 1;}
+\DoxyCodeLine{117     \textcolor{keywordflow}{if} (board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} < 0)}
+\DoxyCodeLine{118         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} = 0;}
+\DoxyCodeLine{119     \textcolor{keywordflow}{if} (board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} >= board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w)}
+\DoxyCodeLine{120         board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} = board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w -\/ 1;}
+\DoxyCodeLine{121 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{board_8h_ae3e1ec44242b00d792586838d7f3ce6b}\label{board_8h_ae3e1ec44242b00d792586838d7f3ce6b}} 
+\index{board.h@{board.h}!new\_state@{new\_state}}
+\index{new\_state@{new\_state}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{new\_state()}{new\_state()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structboard__t}{board\+\_\+t}}$\ast$ new\+\_\+state (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{nbombe }\end{DoxyParamCaption})}
+
+
+
+Initialise une nouvelle partie avec les paramètres donnés. 
+
+Initialise une nouvelle partie avec les paramètres donnés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em width} & is the width of the board \\
+\hline
+{\em height} & is the height of the board \\
+\hline
+{\em nbombe} & is the number of bombe to place \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+the board initialised
+\end{DoxyReturn}
+Take input param to init the board and call place\+\_\+bombe. 
+
+Définition à la ligne 70 du fichier state.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70                                                      \{}
+\DoxyCodeLine{71     \mbox{\hyperlink{structboard__t}{board\_t}} *board;}
+\DoxyCodeLine{72     \mbox{\hyperlink{unionpoint__t}{point\_t}} pos; }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     srand(time(0));}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     board = calloc(1, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structboard__t}{board\_t}}));}
+\DoxyCodeLine{77     board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w = width > 0 ? width : 15;}
+\DoxyCodeLine{78     board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.h = height > 0 ? height : 15;}
+\DoxyCodeLine{79     board-\/>\mbox{\hyperlink{structboard__t_a25ff40081e8b8a1638e32ae2859fff56}{nbombe}} = nbombe;}
+\DoxyCodeLine{80     board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} = board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w / 2;}
+\DoxyCodeLine{81     board-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} = board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.h / 2;    }
+\DoxyCodeLine{82     board-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}} = (\mbox{\hyperlink{structcell__t}{cell\_t}} *)calloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structcell__t}{cell\_t}}) , board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w * board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.h);}
+\DoxyCodeLine{83     \textcolor{keywordflow}{while} (nbombe > 0)\{}
+\DoxyCodeLine{84         pos.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} = rand() \% board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.x;}
+\DoxyCodeLine{85         pos.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} = rand() \% board-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.y;}
+\DoxyCodeLine{86         nbombe -\/= place\_bomb(board, pos);}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88     \textcolor{keywordflow}{return} board;}
+\DoxyCodeLine{89 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{board_8h_a534d896208d94c3a119f03e3f1c1f48f}\label{board_8h_a534d896208d94c3a119f03e3f1c1f48f}} 
+\index{board.h@{board.h}!reveal@{reveal}}
+\index{reveal@{reveal}!board.h@{board.h}}
+\doxysubsubsection{\texorpdfstring{reveal()}{reveal()}}
+{\footnotesize\ttfamily void reveal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Affiche la carte révélée. 
+
+Affiche la carte révélée.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em self} & est un pointeur \mbox{\hyperlink{structboard__t}{board\+\_\+t}} \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 91 du fichier affichage.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                            \{}
+\DoxyCodeLine{92     \textcolor{keyword}{typedef} \mbox{\hyperlink{structcell__t}{cell\_t}} line[\textcolor{keyword}{self}-\/>dims.w];}
+\DoxyCodeLine{93     \textcolor{keyword}{typedef} line board[\textcolor{keyword}{self}-\/>dims.h];}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     printf(\textcolor{stringliteral}{"\(\backslash\)033[2J"});}
+\DoxyCodeLine{96     fflush(stdout);}
+\DoxyCodeLine{97     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *smileys[] = \{\textcolor{stringliteral}{"😵"}, \textcolor{stringliteral}{"🤔"}, \textcolor{stringliteral}{"😎"}\};}
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} res = \mbox{\hyperlink{state_8c_a587cd08aeda68153e1b42a1b3b57ead7}{endgame}}(\textcolor{keyword}{self});}
+\DoxyCodeLine{99     printf(\textcolor{stringliteral}{"\%*s\(\backslash\)r\(\backslash\)n"}, self-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w + 3, smileys[1 + res]);}
+\DoxyCodeLine{100     board *b = (\textcolor{keywordtype}{void}*)self-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *target = \textcolor{stringliteral}{" "};}
+\DoxyCodeLine{103     for (\textcolor{keywordtype}{int} y = 0; y < \textcolor{keyword}{self}-\/>dims.h; ++y) \{}
+\DoxyCodeLine{104         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \textcolor{keyword}{self}-\/>dims.w; ++x) \{}
+\DoxyCodeLine{105             \mbox{\hyperlink{structcell__t}{cell\_t}} c = (*b)[y][x];}
+\DoxyCodeLine{106             \textcolor{keywordtype}{int} r = !!(c.\mbox{\hyperlink{structcell__t_aa5805c5e936174e5092bf7a5b78e7e64}{active}});}
+\DoxyCodeLine{107             r += !!(c.\mbox{\hyperlink{structcell__t_ada319c149ecf9d277742ce526bf180bb}{flagged}}) * 2;}
+\DoxyCodeLine{108             \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{structcell__t_a257bda2b28166f6d19bbbe78a7f900d4}{bombe}}) \{}
+\DoxyCodeLine{109                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{\textcolor{stringliteral}{"💣"}, \textcolor{stringliteral}{"\(\backslash\)033[41m💣"} CLEAR, \textcolor{stringliteral}{"🏳 "} \}[r];}
+\DoxyCodeLine{110             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{111                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{ \textcolor{stringliteral}{"＃"}, \mbox{\hyperlink{affichage_8c_aaa1ab34c15675f2a844b5c09a3ab0e9e}{digits}}[c.\mbox{\hyperlink{structcell__t_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}], \textcolor{stringliteral}{"❌"} \}[r];}
+\DoxyCodeLine{112             \}}
+\DoxyCodeLine{113             \textcolor{keywordflow}{if} (self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} == x \&\&}
+\DoxyCodeLine{114                 self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} == y)}
+\DoxyCodeLine{115                 printf(\textcolor{stringliteral}{"\(\backslash\)033[7m\%s\(\backslash\)033[0m"}, target);}
+\DoxyCodeLine{116             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{117                 printf(\textcolor{stringliteral}{"\%s"}, target);}
+\DoxyCodeLine{118         \}}
+\DoxyCodeLine{119         puts(\textcolor{stringliteral}{"\(\backslash\)r"});}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121     fflush(stdout);}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{board_8h_a534d896208d94c3a119f03e3f1c1f48f_cgraph}
+\end{center}
+\end{figure}

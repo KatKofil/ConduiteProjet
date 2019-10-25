@@ -1,0 +1,122 @@
+\hypertarget{structboard__t}{}\doxysection{Référence de la structure board\+\_\+t}
+\label{structboard__t}\index{board\_t@{board\_t}}
+
+
+Représente l\textquotesingle{}état d\textquotesingle{}un tableau de jeu.  
+
+
+
+
+{\ttfamily \#include $<$board.\+h$>$}
+
+
+
+Graphe de collaboration de board\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{structboard__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcell__t}{cell\+\_\+t}} $\ast$ \mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}}
+\item 
+\mbox{\hyperlink{unionpoint__t}{point\+\_\+t}} \mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}
+\item 
+int \mbox{\hyperlink{structboard__t_a5da5f709f925b17610301b1908a30b79}{defeat}}
+\item 
+int \mbox{\hyperlink{structboard__t_aa66e4426e5dabb26bd0b5be1af1bfa0c}{activated}}
+\item 
+int \mbox{\hyperlink{structboard__t_ada319c149ecf9d277742ce526bf180bb}{flagged}}
+\item 
+\mbox{\hyperlink{uniondim__t}{dim\+\_\+t}} \mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}
+\item 
+int \mbox{\hyperlink{structboard__t_a25ff40081e8b8a1638e32ae2859fff56}{nbombe}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Représente l\textquotesingle{}état d\textquotesingle{}un tableau de jeu. 
+
+Définition à la ligne 62 du fichier board.\+h.
+
+
+
+\doxysubsection{Documentation des champs}
+\mbox{\Hypertarget{structboard__t_aa66e4426e5dabb26bd0b5be1af1bfa0c}\label{structboard__t_aa66e4426e5dabb26bd0b5be1af1bfa0c}} 
+\index{board\_t@{board\_t}!activated@{activated}}
+\index{activated@{activated}!board\_t@{board\_t}}
+\doxysubsubsection{\texorpdfstring{activated}{activated}}
+{\footnotesize\ttfamily int activated}
+
+Indicateur du nombre de cases activatiées 
+
+Définition à la ligne 66 du fichier board.\+h.
+
+\mbox{\Hypertarget{structboard__t_a47891852778818abe9a1c30e4e715ca3}\label{structboard__t_a47891852778818abe9a1c30e4e715ca3}} 
+\index{board\_t@{board\_t}!board@{board}}
+\index{board@{board}!board\_t@{board\_t}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcell__t}{cell\+\_\+t}}$\ast$ board}
+
+Pointeur vers l\textquotesingle{}état des cellules 
+
+Définition à la ligne 63 du fichier board.\+h.
+
+\mbox{\Hypertarget{structboard__t_af542a1fa003d6ea693acc8b121727392}\label{structboard__t_af542a1fa003d6ea693acc8b121727392}} 
+\index{board\_t@{board\_t}!cursor@{cursor}}
+\index{cursor@{cursor}!board\_t@{board\_t}}
+\doxysubsubsection{\texorpdfstring{cursor}{cursor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionpoint__t}{point\+\_\+t}} cursor}
+
+Position du curseur 
+
+Définition à la ligne 64 du fichier board.\+h.
+
+\mbox{\Hypertarget{structboard__t_a5da5f709f925b17610301b1908a30b79}\label{structboard__t_a5da5f709f925b17610301b1908a30b79}} 
+\index{board\_t@{board\_t}!defeat@{defeat}}
+\index{defeat@{defeat}!board\_t@{board\_t}}
+\doxysubsubsection{\texorpdfstring{defeat}{defeat}}
+{\footnotesize\ttfamily int defeat}
+
+Indicateur de défaite 
+
+Définition à la ligne 65 du fichier board.\+h.
+
+\mbox{\Hypertarget{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}\label{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}} 
+\index{board\_t@{board\_t}!dims@{dims}}
+\index{dims@{dims}!board\_t@{board\_t}}
+\doxysubsubsection{\texorpdfstring{dims}{dims}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uniondim__t}{dim\+\_\+t}} dims}
+
+Dimension du tableau 
+
+Définition à la ligne 68 du fichier board.\+h.
+
+\mbox{\Hypertarget{structboard__t_ada319c149ecf9d277742ce526bf180bb}\label{structboard__t_ada319c149ecf9d277742ce526bf180bb}} 
+\index{board\_t@{board\_t}!flagged@{flagged}}
+\index{flagged@{flagged}!board\_t@{board\_t}}
+\doxysubsubsection{\texorpdfstring{flagged}{flagged}}
+{\footnotesize\ttfamily int flagged}
+
+Indicateur du nombre de cases flagged 
+
+Définition à la ligne 67 du fichier board.\+h.
+
+\mbox{\Hypertarget{structboard__t_a25ff40081e8b8a1638e32ae2859fff56}\label{structboard__t_a25ff40081e8b8a1638e32ae2859fff56}} 
+\index{board\_t@{board\_t}!nbombe@{nbombe}}
+\index{nbombe@{nbombe}!board\_t@{board\_t}}
+\doxysubsubsection{\texorpdfstring{nbombe}{nbombe}}
+{\footnotesize\ttfamily int nbombe}
+
+Nombre de bombes 
+
+Définition à la ligne 69 du fichier board.\+h.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{board_8h}{board.\+h}}\end{DoxyCompactItemize}

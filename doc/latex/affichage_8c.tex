@@ -1,0 +1,210 @@
+\hypertarget{affichage_8c}{}\doxysection{Référence du fichier affichage.\+c}
+\label{affichage_8c}\index{affichage.c@{affichage.c}}
+
+
+Fonctions manipulant l\textquotesingle{}affichage du jeu.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$board.\+h$>$}\newline
+Graphe des dépendances par inclusion de affichage.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{affichage_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{affichage_8c_a611cc9b5f655508482f3d7a9751c182a}\label{affichage_8c_a611cc9b5f655508482f3d7a9751c182a}} 
+\#define {\bfseries C\+L\+E\+AR}~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}
+\item 
+\mbox{\Hypertarget{affichage_8c_a79d10e672abb49ad63eeaa8aaef57c38}\label{affichage_8c_a79d10e672abb49ad63eeaa8aaef57c38}} 
+\#define {\bfseries B\+L\+UE}~\char`\"{}\textbackslash{}033\mbox{[}34m\char`\"{}
+\item 
+\mbox{\Hypertarget{affichage_8c_acfbc006ea433ad708fdee3e82996e721}\label{affichage_8c_acfbc006ea433ad708fdee3e82996e721}} 
+\#define {\bfseries G\+R\+E\+EN}~\char`\"{}\textbackslash{}033\mbox{[}32m\char`\"{}
+\item 
+\mbox{\Hypertarget{affichage_8c_a8d23feea868a983c8c2b661e1e16972f}\label{affichage_8c_a8d23feea868a983c8c2b661e1e16972f}} 
+\#define {\bfseries R\+ED}~\char`\"{}\textbackslash{}033\mbox{[}31m\char`\"{}
+\item 
+\mbox{\Hypertarget{affichage_8c_af54a5a977c0c499323d656315f008ee0}\label{affichage_8c_af54a5a977c0c499323d656315f008ee0}} 
+\#define {\bfseries M\+AG}~\char`\"{}\textbackslash{}033\mbox{[}35m\char`\"{}
+\item 
+\mbox{\Hypertarget{affichage_8c_ad243f93c16bc4c1d3e0a13b84421d760}\label{affichage_8c_ad243f93c16bc4c1d3e0a13b84421d760}} 
+\#define {\bfseries C\+Y\+AN}~\char`\"{}\textbackslash{}033\mbox{[}36m\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{affichage_8c_a27a9b46c52c916594fe58ed293177059}{affichage}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$self)
+\begin{DoxyCompactList}\small\item\em Dessine la zone de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8c_a534d896208d94c3a119f03e3f1c1f48f}{reveal}} (\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$self)
+\begin{DoxyCompactList}\small\item\em Révèle l\textquotesingle{}entièreté du plateau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{affichage_8c_aaa1ab34c15675f2a844b5c09a3ab0e9e}{digits}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Les chiffres possibles et leur couleur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions manipulant l\textquotesingle{}affichage du jeu. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{affichage_8c_a27a9b46c52c916594fe58ed293177059}\label{affichage_8c_a27a9b46c52c916594fe58ed293177059}} 
+\index{affichage.c@{affichage.c}!affichage@{affichage}}
+\index{affichage@{affichage}!affichage.c@{affichage.c}}
+\doxysubsubsection{\texorpdfstring{affichage()}{affichage()}}
+{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Dessine la zone de jeu. 
+
+Gère l\textquotesingle{}affichage de l\textquotesingle{}état.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em self} & est un pointeur \mbox{\hyperlink{structboard__t}{board\+\_\+t}}\\
+\hline
+\end{DoxyParams}
+Affiche l\textquotesingle{}état du tableau 
+
+Définition à la ligne 55 du fichier affichage.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                               \{}
+\DoxyCodeLine{56     \textcolor{keyword}{typedef} \mbox{\hyperlink{structcell__t}{cell\_t}} line[\textcolor{keyword}{self}-\/>dims.w];}
+\DoxyCodeLine{57     \textcolor{keyword}{typedef} line board[\textcolor{keyword}{self}-\/>dims.h];}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     printf(\textcolor{stringliteral}{"\(\backslash\)033[2J"});}
+\DoxyCodeLine{60     fflush(stdout);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     printf(\textcolor{stringliteral}{"\%*s\(\backslash\)r\(\backslash\)n"}, self-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w + 3, \textcolor{stringliteral}{"🤔"});}
+\DoxyCodeLine{63     \textcolor{comment}{//}}
+\DoxyCodeLine{64     board *b = (\textcolor{keywordtype}{void}*)self-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *target = \textcolor{stringliteral}{" "};}
+\DoxyCodeLine{67     for (\textcolor{keywordtype}{int} y = 0; y < \textcolor{keyword}{self}-\/>dims.h; ++y) \{}
+\DoxyCodeLine{68         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \textcolor{keyword}{self}-\/>dims.w; ++x) \{}
+\DoxyCodeLine{69             \mbox{\hyperlink{structcell__t}{cell\_t}} c = (*b)[y][x];}
+\DoxyCodeLine{70             \textcolor{keywordtype}{int} r = !!(c.\mbox{\hyperlink{structcell__t_aa5805c5e936174e5092bf7a5b78e7e64}{active}});}
+\DoxyCodeLine{71             r += !!(c.\mbox{\hyperlink{structcell__t_ada319c149ecf9d277742ce526bf180bb}{flagged}}) * 2;}
+\DoxyCodeLine{72             \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{structcell__t_a257bda2b28166f6d19bbbe78a7f900d4}{bombe}})}
+\DoxyCodeLine{73                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{\textcolor{stringliteral}{"＃"}, 0, \textcolor{stringliteral}{"🏳 "} \}[r];}
+\DoxyCodeLine{74             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{75                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{ \textcolor{stringliteral}{"＃"}, \mbox{\hyperlink{affichage_8c_aaa1ab34c15675f2a844b5c09a3ab0e9e}{digits}}[c.\mbox{\hyperlink{structcell__t_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}], \textcolor{stringliteral}{"🏳 "} \}[r];}
+\DoxyCodeLine{76             \}}
+\DoxyCodeLine{77             \textcolor{keywordflow}{if} (self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} == x \&\&}
+\DoxyCodeLine{78                 self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} == y)}
+\DoxyCodeLine{79                 printf(\textcolor{stringliteral}{"\(\backslash\)033[7m\%s\(\backslash\)033[0m"}, target);}
+\DoxyCodeLine{80             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{81                 printf(\textcolor{stringliteral}{"\%s"}, target);}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83         puts(\textcolor{stringliteral}{"\(\backslash\)r"});}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85     fflush(stdout);}
+\DoxyCodeLine{86 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{affichage_8c_a534d896208d94c3a119f03e3f1c1f48f}\label{affichage_8c_a534d896208d94c3a119f03e3f1c1f48f}} 
+\index{affichage.c@{affichage.c}!reveal@{reveal}}
+\index{reveal@{reveal}!affichage.c@{affichage.c}}
+\doxysubsubsection{\texorpdfstring{reveal()}{reveal()}}
+{\footnotesize\ttfamily void reveal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structboard__t}{board\+\_\+t}} $\ast$}]{self }\end{DoxyParamCaption})}
+
+
+
+Révèle l\textquotesingle{}entièreté du plateau. 
+
+Affiche la carte révélée.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em self} & est un pointeur \mbox{\hyperlink{structboard__t}{board\+\_\+t}} \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 91 du fichier affichage.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                            \{}
+\DoxyCodeLine{92     \textcolor{keyword}{typedef} \mbox{\hyperlink{structcell__t}{cell\_t}} line[\textcolor{keyword}{self}-\/>dims.w];}
+\DoxyCodeLine{93     \textcolor{keyword}{typedef} line board[\textcolor{keyword}{self}-\/>dims.h];}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     printf(\textcolor{stringliteral}{"\(\backslash\)033[2J"});}
+\DoxyCodeLine{96     fflush(stdout);}
+\DoxyCodeLine{97     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *smileys[] = \{\textcolor{stringliteral}{"😵"}, \textcolor{stringliteral}{"🤔"}, \textcolor{stringliteral}{"😎"}\};}
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} res = \mbox{\hyperlink{state_8c_a587cd08aeda68153e1b42a1b3b57ead7}{endgame}}(\textcolor{keyword}{self});}
+\DoxyCodeLine{99     printf(\textcolor{stringliteral}{"\%*s\(\backslash\)r\(\backslash\)n"}, self-\/>\mbox{\hyperlink{structboard__t_a6d9f2662f1b1f15ad02b6c276b02b0d2}{dims}}.w + 3, smileys[1 + res]);}
+\DoxyCodeLine{100     board *b = (\textcolor{keywordtype}{void}*)self-\/>\mbox{\hyperlink{structboard__t_a47891852778818abe9a1c30e4e715ca3}{board}};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *target = \textcolor{stringliteral}{" "};}
+\DoxyCodeLine{103     for (\textcolor{keywordtype}{int} y = 0; y < \textcolor{keyword}{self}-\/>dims.h; ++y) \{}
+\DoxyCodeLine{104         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \textcolor{keyword}{self}-\/>dims.w; ++x) \{}
+\DoxyCodeLine{105             \mbox{\hyperlink{structcell__t}{cell\_t}} c = (*b)[y][x];}
+\DoxyCodeLine{106             \textcolor{keywordtype}{int} r = !!(c.\mbox{\hyperlink{structcell__t_aa5805c5e936174e5092bf7a5b78e7e64}{active}});}
+\DoxyCodeLine{107             r += !!(c.\mbox{\hyperlink{structcell__t_ada319c149ecf9d277742ce526bf180bb}{flagged}}) * 2;}
+\DoxyCodeLine{108             \textcolor{keywordflow}{if} (c.\mbox{\hyperlink{structcell__t_a257bda2b28166f6d19bbbe78a7f900d4}{bombe}}) \{}
+\DoxyCodeLine{109                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{\textcolor{stringliteral}{"💣"}, \textcolor{stringliteral}{"\(\backslash\)033[41m💣"} CLEAR, \textcolor{stringliteral}{"🏳 "} \}[r];}
+\DoxyCodeLine{110             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{111                 target = (\textcolor{keyword}{const} \textcolor{keywordtype}{char} *[]) \{ \textcolor{stringliteral}{"＃"}, \mbox{\hyperlink{affichage_8c_aaa1ab34c15675f2a844b5c09a3ab0e9e}{digits}}[c.\mbox{\hyperlink{structcell__t_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}], \textcolor{stringliteral}{"❌"} \}[r];}
+\DoxyCodeLine{112             \}}
+\DoxyCodeLine{113             \textcolor{keywordflow}{if} (self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a6150e0515f7202e2fb518f7206ed97dc}{x}} == x \&\&}
+\DoxyCodeLine{114                 self-\/>\mbox{\hyperlink{structboard__t_af542a1fa003d6ea693acc8b121727392}{cursor}}.\mbox{\hyperlink{unionpoint__t_a0a2f84ed7838f07779ae24c5a9086d33}{y}} == y)}
+\DoxyCodeLine{115                 printf(\textcolor{stringliteral}{"\(\backslash\)033[7m\%s\(\backslash\)033[0m"}, target);}
+\DoxyCodeLine{116             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{117                 printf(\textcolor{stringliteral}{"\%s"}, target);}
+\DoxyCodeLine{118         \}}
+\DoxyCodeLine{119         puts(\textcolor{stringliteral}{"\(\backslash\)r"});}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121     fflush(stdout);}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{affichage_8c_a534d896208d94c3a119f03e3f1c1f48f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{affichage_8c_aaa1ab34c15675f2a844b5c09a3ab0e9e}\label{affichage_8c_aaa1ab34c15675f2a844b5c09a3ab0e9e}} 
+\index{affichage.c@{affichage.c}!digits@{digits}}
+\index{digits@{digits}!affichage.c@{affichage.c}}
+\doxysubsubsection{\texorpdfstring{digits}{digits}}
+{\footnotesize\ttfamily const char$\ast$ digits\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \textcolor{stringliteral}{"  "},}
+\DoxyCodeLine{    BLUE \textcolor{stringliteral}{"１"} CLEAR,}
+\DoxyCodeLine{    GREEN \textcolor{stringliteral}{"２"} CLEAR,}
+\DoxyCodeLine{    RED \textcolor{stringliteral}{"３"} CLEAR,}
+\DoxyCodeLine{    MAG \textcolor{stringliteral}{"４"} CLEAR,}
+\DoxyCodeLine{    \textcolor{stringliteral}{"５"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"６"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"７"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"８"}\}}
+
+\end{DoxyCode}
+
+
+Les chiffres possibles et leur couleur. 
+
+\textbackslash{}const digits 
+
+Définition à la ligne 39 du fichier affichage.\+c.
+

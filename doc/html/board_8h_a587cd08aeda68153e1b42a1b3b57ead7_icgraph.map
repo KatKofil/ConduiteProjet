@@ -1,0 +1,4 @@
+<map id="endgame" name="endgame">
+<area shape="rect" id="node1" title="Défini si la partie est terminée." alt="" coords="116,5,199,32"/>
+<area shape="rect" id="node2" href="$board_8h.html#a534d896208d94c3a119f03e3f1c1f48f" title="Affiche la carte révélée." alt="" coords="5,5,68,32"/>
+</map>

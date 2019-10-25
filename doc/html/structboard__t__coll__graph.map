@@ -1,0 +1,5 @@
+<map id="board_t" name="board_t">
+<area shape="rect" id="node1" title="Représente l&#39;état d&#39;un tableau de jeu." alt="" coords="41,109,112,136"/>
+<area shape="rect" id="node2" href="$structcell__t.html" title="Représente l&#39;état d&#39;une cellule." alt="" coords="5,5,63,32"/>
+<area shape="rect" id="node3" href="$unionpoint__t.html" title="Représente un point 2D." alt="" coords="87,5,154,32"/>
+</map>

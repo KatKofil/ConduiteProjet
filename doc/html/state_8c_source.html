@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Minesweeper:  Fichier source de state.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Minesweeper
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Sweep some mines</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('state_8c_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">state.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="state_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    This file is part of MineSweeper.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">    MineSweeper is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">    it under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    (at your option) any later version.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">    MineSweeper is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    along with MineSweeper.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="board_8h.html">board.h</a>&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> place_bomb(<a class="code" href="structboard__t.html">board_t</a> *board, <a class="code" href="unionpoint__t.html">point_t</a> pos){</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structcell__t.html">cell_t</a> line[board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w];</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">typedef</span> line boardarr[board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h];</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    boardarr *arr = (<span class="keywordtype">void</span>*)board-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    if ((*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].bombe == 0){</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        (*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].<a class="code" href="structcell__t.html#a257bda2b28166f6d19bbbe78a7f900d4">bombe</a> = 1;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <a class="code" href="unionpoint__t.html">point_t</a> neighboors[] = {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> - 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> - 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> - 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> + 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> - 1}},</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> - 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>}}                          , {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> + 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>}},</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> - 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> + 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> + 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> + 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> + 1}},</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        };</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; ++i) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <a class="code" href="unionpoint__t.html">point_t</a> n = neighboors[i];</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span> (n.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &lt; 0 || n.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &lt; 0)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">if</span> (n.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &gt;= board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h || n.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &gt;= board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            (*arr)[n.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][n.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].n++;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="board_8h.html#ae3e1ec44242b00d792586838d7f3ce6b">   70</a></span>&#160;<a class="code" href="structboard__t.html">board_t</a> *<a class="code" href="state_8c.html#a408dde607ec4b3922fdc841b9a2be144">new_state</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> nbombe){</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="structboard__t.html">board_t</a> *board;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="unionpoint__t.html">point_t</a> pos; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    srand(time(0));</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    board = calloc(1, <span class="keyword">sizeof</span>(<a class="code" href="structboard__t.html">board_t</a>));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w = width &gt; 0 ? width : 15;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h = height &gt; 0 ? height : 15;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a25ff40081e8b8a1638e32ae2859fff56">nbombe</a> = nbombe;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w / 2;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h / 2;    </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    board-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a> = (<a class="code" href="structcell__t.html">cell_t</a> *)calloc(<span class="keyword">sizeof</span>(<a class="code" href="structcell__t.html">cell_t</a>) , board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w * board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">while</span> (nbombe &gt; 0){</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = rand() % board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.x;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = rand() % board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.y;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        nbombe -= place_bomb(board, pos);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> board;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="board_8h.html#af863331ba9d5e4da6049f43465b350f4">   96</a></span>&#160;<span class="keywordtype">void</span>    <a class="code" href="state_8c.html#af863331ba9d5e4da6049f43465b350f4">manip_cursor</a>(<a class="code" href="structboard__t.html">board_t</a> *board, <span class="keywordtype">char</span> move){</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">switch</span> (move) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;z&#39;</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> -= 1;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> += 1;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;d&#39;</span>:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> += 1;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">case</span> <span class="charliteral">&#39;q&#39;</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> -= 1;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &lt; 0)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = 0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &gt;= board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h - 1;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &lt; 0)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = 0;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &gt;= board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> = board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w - 1;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="board_8h.html#ad8deac8f1cde486bd08c377d8671a455">  127</a></span>&#160;<span class="keywordtype">void</span>    <a class="code" href="state_8c.html#ad8deac8f1cde486bd08c377d8671a455">flag</a>(<a class="code" href="structboard__t.html">board_t</a> *board) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structcell__t.html">cell_t</a> line[board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.w];</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">typedef</span> line boardarr[board-&gt;<a class="code" href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">dims</a>.h];</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    boardarr *arr = (<span class="keywordtype">void</span>*)board-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    if ((*arr)[board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].flagged)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#ada319c149ecf9d277742ce526bf180bb">flagged</a>--;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        board-&gt;<a class="code" href="structboard__t.html#ada319c149ecf9d277742ce526bf180bb">flagged</a>++;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    (*arr)[board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][board-&gt;<a class="code" href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">cursor</a>.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].flagged ^= 1;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span>  active_helper(<a class="code" href="structboard__t.html">board_t</a> *<span class="keyword">self</span>, <a class="code" href="unionpoint__t.html">point_t</a> pos) {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structcell__t.html">cell_t</a> line[<span class="keyword">self</span>-&gt;dims.w];</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">typedef</span> line boardarr[<span class="keyword">self</span>-&gt;dims.h];</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    boardarr *arr = (<span class="keywordtype">void</span>*)self-&gt;board;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    if ((*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].flagged)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span> ((*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].active)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    (*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].<a class="code" href="structcell__t.html#aa5805c5e936174e5092bf7a5b78e7e64">active</a> = 1;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">self</span>-&gt;activated++;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">if</span>((*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].n)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">const</span> <a class="code" href="unionpoint__t.html">point_t</a> neighboors[] = {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> - 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> - 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> - 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> + 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> - 1}},</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> - 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>}}                       , {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> + 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>}},</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> - 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> + 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> + 1}}, {{pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> + 1, pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> + 1}},</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    };</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; ++i) {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <a class="code" href="unionpoint__t.html">point_t</a> n = neighboors[i];</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">if</span> (n.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &lt; 0 || n.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &lt; 0)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span> (n.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &gt;= self-&gt;dims.h || n.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &gt;= self-&gt;dims.w)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        active_helper(<span class="keyword">self</span>, n);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="board_8h.html#a3dec61e769070feef0cd9d68f1d96e36">  175</a></span>&#160;<span class="keywordtype">void</span>    <a class="code" href="state_8c.html#ab74a83dec2ac31f9f88eaf01661434ad">active</a>(<a class="code" href="structboard__t.html">board_t</a> *<span class="keyword">self</span>) {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structcell__t.html">cell_t</a> line[<span class="keyword">self</span>-&gt;dims.w];</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">typedef</span> line boardarr[<span class="keyword">self</span>-&gt;dims.h];</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    boardarr *arr = (<span class="keywordtype">void</span>*)self-&gt;board;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <a class="code" href="unionpoint__t.html">point_t</a> pos = self-&gt;cursor;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    if ((*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].bombe) {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        (*arr)[pos.<a class="code" href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>][pos.<a class="code" href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>].active = 1;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keyword">self</span>-&gt;defeat = 1;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    active_helper(<span class="keyword">self</span>, self-&gt;cursor);    </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="board_8h.html#a587cd08aeda68153e1b42a1b3b57ead7">  194</a></span>&#160;<span class="keywordtype">int</span>     <a class="code" href="state_8c.html#a587cd08aeda68153e1b42a1b3b57ead7">endgame</a>(<a class="code" href="structboard__t.html">board_t</a> *<span class="keyword">self</span>) {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span> (self-&gt;defeat)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">if</span> (self-&gt;dims.w * self-&gt;dims.h - self-&gt;activated == self-&gt;nbombe)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="board_8h.html#abacc668acc856a0e497c712b8f350aaa">  207</a></span>&#160;<span class="keywordtype">void</span>    <a class="code" href="state_8c.html#abacc668acc856a0e497c712b8f350aaa">free_board</a>(<a class="code" href="structboard__t.html">board_t</a> *board){</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    free(board-&gt;<a class="code" href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board</a>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    free(board);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="astate_8c_html_af863331ba9d5e4da6049f43465b350f4"><div class="ttname"><a href="state_8c.html#af863331ba9d5e4da6049f43465b350f4">manip_cursor</a></div><div class="ttdeci">void manip_cursor(board_t *board, char move)</div><div class="ttdoc">Change cursor state.</div><div class="ttdef"><b>Definition:</b> <a href="state_8c_source.html#l00096">state.c:96</a></div></div>
+<div class="ttc" id="astate_8c_html_abacc668acc856a0e497c712b8f350aaa"><div class="ttname"><a href="state_8c.html#abacc668acc856a0e497c712b8f350aaa">free_board</a></div><div class="ttdeci">void free_board(board_t *board)</div><div class="ttdoc">free the board</div><div class="ttdef"><b>Definition:</b> <a href="state_8c_source.html#l00207">state.c:207</a></div></div>
+<div class="ttc" id="astate_8c_html_ad8deac8f1cde486bd08c377d8671a455"><div class="ttname"><a href="state_8c.html#ad8deac8f1cde486bd08c377d8671a455">flag</a></div><div class="ttdeci">void flag(board_t *board)</div><div class="ttdoc">Change cell's flag state.</div><div class="ttdef"><b>Definition:</b> <a href="state_8c_source.html#l00127">state.c:127</a></div></div>
+<div class="ttc" id="astructcell__t_html"><div class="ttname"><a href="structcell__t.html">cell_t</a></div><div class="ttdoc">Représente l'état d'une cellule.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00030">board.h:30</a></div></div>
+<div class="ttc" id="astructcell__t_html_aa5805c5e936174e5092bf7a5b78e7e64"><div class="ttname"><a href="structcell__t.html#aa5805c5e936174e5092bf7a5b78e7e64">cell_t::active</a></div><div class="ttdeci">int active</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00031">board.h:31</a></div></div>
+<div class="ttc" id="aunionpoint__t_html"><div class="ttname"><a href="unionpoint__t.html">point_t</a></div><div class="ttdoc">Représente un point 2D.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00041">board.h:41</a></div></div>
+<div class="ttc" id="astructboard__t_html"><div class="ttname"><a href="structboard__t.html">board_t</a></div><div class="ttdoc">Représente l'état d'un tableau de jeu.</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00062">board.h:62</a></div></div>
+<div class="ttc" id="astate_8c_html_ab74a83dec2ac31f9f88eaf01661434ad"><div class="ttname"><a href="state_8c.html#ab74a83dec2ac31f9f88eaf01661434ad">active</a></div><div class="ttdeci">void active(board_t *self)</div><div class="ttdoc">Change active cell's state.</div><div class="ttdef"><b>Definition:</b> <a href="state_8c_source.html#l00175">state.c:175</a></div></div>
+<div class="ttc" id="astructcell__t_html_a257bda2b28166f6d19bbbe78a7f900d4"><div class="ttname"><a href="structcell__t.html#a257bda2b28166f6d19bbbe78a7f900d4">cell_t::bombe</a></div><div class="ttdeci">int bombe</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00033">board.h:33</a></div></div>
+<div class="ttc" id="astate_8c_html_a587cd08aeda68153e1b42a1b3b57ead7"><div class="ttname"><a href="state_8c.html#a587cd08aeda68153e1b42a1b3b57ead7">endgame</a></div><div class="ttdeci">int endgame(board_t *self)</div><div class="ttdoc">Change cursor state.</div><div class="ttdef"><b>Definition:</b> <a href="state_8c_source.html#l00194">state.c:194</a></div></div>
+<div class="ttc" id="astructboard__t_html_ada319c149ecf9d277742ce526bf180bb"><div class="ttname"><a href="structboard__t.html#ada319c149ecf9d277742ce526bf180bb">board_t::flagged</a></div><div class="ttdeci">int flagged</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00067">board.h:67</a></div></div>
+<div class="ttc" id="aunionpoint__t_html_a6150e0515f7202e2fb518f7206ed97dc"><div class="ttname"><a href="unionpoint__t.html#a6150e0515f7202e2fb518f7206ed97dc">point_t::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00043">board.h:43</a></div></div>
+<div class="ttc" id="astructboard__t_html_a47891852778818abe9a1c30e4e715ca3"><div class="ttname"><a href="structboard__t.html#a47891852778818abe9a1c30e4e715ca3">board_t::board</a></div><div class="ttdeci">cell_t * board</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00063">board.h:63</a></div></div>
+<div class="ttc" id="aboard_8h_html"><div class="ttname"><a href="board_8h.html">board.h</a></div><div class="ttdoc">Définitions des fonctions manipulant le type board_t.</div></div>
+<div class="ttc" id="aunionpoint__t_html_a0a2f84ed7838f07779ae24c5a9086d33"><div class="ttname"><a href="unionpoint__t.html#a0a2f84ed7838f07779ae24c5a9086d33">point_t::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00044">board.h:44</a></div></div>
+<div class="ttc" id="astructboard__t_html_a25ff40081e8b8a1638e32ae2859fff56"><div class="ttname"><a href="structboard__t.html#a25ff40081e8b8a1638e32ae2859fff56">board_t::nbombe</a></div><div class="ttdeci">int nbombe</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00069">board.h:69</a></div></div>
+<div class="ttc" id="astate_8c_html_a408dde607ec4b3922fdc841b9a2be144"><div class="ttname"><a href="state_8c.html#a408dde607ec4b3922fdc841b9a2be144">new_state</a></div><div class="ttdeci">board_t * new_state(int width, int height, int nbombe)</div><div class="ttdoc">Init the board.</div><div class="ttdef"><b>Definition:</b> <a href="state_8c_source.html#l00070">state.c:70</a></div></div>
+<div class="ttc" id="astructboard__t_html_af542a1fa003d6ea693acc8b121727392"><div class="ttname"><a href="structboard__t.html#af542a1fa003d6ea693acc8b121727392">board_t::cursor</a></div><div class="ttdeci">point_t cursor</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00064">board.h:64</a></div></div>
+<div class="ttc" id="astructboard__t_html_a6d9f2662f1b1f15ad02b6c276b02b0d2"><div class="ttname"><a href="structboard__t.html#a6d9f2662f1b1f15ad02b6c276b02b0d2">board_t::dims</a></div><div class="ttdeci">dim_t dims</div><div class="ttdef"><b>Definition:</b> <a href="board_8h_source.html#l00068">board.h:68</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="state_8c.html">state.c</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
+</body>
+</html>
