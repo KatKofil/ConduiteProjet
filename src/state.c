@@ -24,10 +24,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-/*! \brief Place bombe on the board
+/*! \brief Place bomb on the board
  *  \param board is a pointer \ref board_t
  *  \param pos is a struct \ref point_t
- *  \return if a bombe is placed
+ *  \return if a bomb is placed
  * 
  *  Use position to place bombe and update number of close bombe
  *  for neighboors
