@@ -1,0 +1,5 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+PROJECT(demineur)
+SET(CMAKE_C_FLAGS "-g")
+ADD_EXECUTABLE(demineur src/affichage.c  src/state.c)
+INCLUDE_DIRECTORIES(includes)
