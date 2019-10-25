@@ -1,12 +1,28 @@
+/*
+    This file is part of MineSweeper.
+
+    MineSweeper is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    MineSweeper is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with MineSweeper.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/**
+ * \file affichage.c
+ * \brief Fonctions manipulant l'affichage du jeu
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <board.h>
-
-// Une ligne qui contient le nombre de mines présentes
-// le nombre de flags placés
-// au milieu de la ligne le smiley windows 95 
-// afficher tout le jeu (2 boucles for)
-// case non active = case x, si flag = drapeau genre p, si active = affiche contenu (0= espace, sinon chiffre)
 
 #define CLEAR "\033[0m"
 #define BLUE "\033[34m"
@@ -14,6 +30,11 @@
 #define RED "\033[31m"
 #define MAG "\033[35m"
 #define CYAN "\033[36m"
+
+/**
+   \const digits
+   \brief Les chiffres possibles et leur couleur
+*/
 
 const char *digits[] = {
 	"  ",
@@ -26,6 +47,11 @@ const char *digits[] = {
 	"７",
 	"８"};
 
+/*! \brief Dessine la zone de jeu
+ *  \param self est un pointeur \ref board_t
+ * 
+ *  Affiche l'état du tableau
+ */
 void affichage(board_t *self) {
 	typedef cell_t line[self->dims.w];
 	typedef line board[self->dims.h];
@@ -59,6 +85,9 @@ void affichage(board_t *self) {
 	fflush(stdout);
 }
 
+/*! \brief Révèle l'entièreté du plateau
+ *  \param self est un pointeur \ref board_t
+ */
 void reveal(board_t *self) {
 	typedef cell_t line[self->dims.w];
 	typedef line board[self->dims.h];
