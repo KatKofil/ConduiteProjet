@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <board.h>
 
 // Une ligne qui contient le nombre de mines présentes
 // le nombre de flags placés
