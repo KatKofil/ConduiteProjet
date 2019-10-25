@@ -1,0 +1,6 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+PROJECT(demineur)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../bin/")
+SET(CMAKE_C_FLAGS "-Wall -Wextra -Werror -g")
+ADD_EXECUTABLE(demineur src/affichage.c  src/state.c src/main.c)
+INCLUDE_DIRECTORIES(includes)
