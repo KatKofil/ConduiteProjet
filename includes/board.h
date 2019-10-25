@@ -30,7 +30,7 @@
 typedef struct {
 	int active : 1; /*!< Est-ce que cette cellule a été dévoilée? */
 	int flagged : 1; /*!< Est-ce qu'un drapeau est sur la cellule?*/
-	int bombe : 1;
+	int bombe : 1;	/*!< Est-ce qu'une bombe est sur la cellule?*/
 	int n : 5; /*!< Combien de bombes sont dans le voisinage de cette cellule?*/
 } cell_t;
 
@@ -62,9 +62,9 @@ typedef point_t dim_t;
 typedef struct {
 	cell_t *board; /*!< Pointeur vers l'état des cellules */
 	point_t cursor; /*!< Position du curseur */
-	int defeat;
-	int activated;
-	int flagged;
+	int defeat;	/*!< Indicateur de défaite */
+	int activated; /*!< Indicateur du nombre de cases activatiées */
+	int flagged; /*!< Indicateur du nombre de cases flagged */
 	dim_t dims; /*!< Dimension du tableau */
 	int	nbombe; /*!< Nombre de bombes */
 } board_t;
@@ -75,14 +75,22 @@ board_t *new_state(int height, int width, int nbombe);
 /// \brief Déplace le curseur selon la direction donnée
 void	manip_cursor(board_t *board, char move);
 
+/// \brief Flagge la cellule du cursor
 void	flag(board_t *board);
 
+/// \brief Active la cellule du cursor
 void	active(board_t *board);
 
+/// \brief Défini si la partie est terminée
 int		endgame(board_t *self);
 
+/// \brief Gère l'affichage de l'état
 void affichage(board_t *self);
+
+/// \brief Affiche la carte révélée
 void reveal(board_t *self);
+
+/// \brief Libère la mémoire du board
 void free_board(board_t *board);
 
 #endif /* BOARD_H */
