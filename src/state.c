@@ -32,7 +32,7 @@
  *  Use position to place bombe and update number of close bombe
  *  for neighboors
  */
-int place_bomb(board_t *board, point_t pos){
+static int place_bomb(board_t *board, point_t pos){
     typedef cell_t line[board->dims.w];
     typedef line boardarr[board->dims.h];
     boardarr *arr = (void*)board->board;
@@ -88,6 +88,11 @@ board_t *new_state(int width, int height, int nbombe){
     return board;
 }
 
+/*! \brief Change cursor state
+
+ *  \param board is the state of board
+ *  \param move is the move to apply to board.cursor 
+ */
 void    manip_cursor(board_t *board, char move){
     switch (move) {
     case 'z':
@@ -115,6 +120,10 @@ void    manip_cursor(board_t *board, char move){
         board->cursor.x = board->dims.w - 1;
 }
 
+/*! \brief Change cell's flag state
+
+ *  \param board is the state of board
+ */
 void    flag(board_t *board) {
     typedef cell_t line[board->dims.w];
     typedef line boardarr[board->dims.h];
@@ -126,7 +135,8 @@ void    flag(board_t *board) {
     (*arr)[board->cursor.y][board->cursor.x].flagged ^= 1;
 }
 
-void    active_helper(board_t *self, point_t pos) {
+
+static void  active_helper(board_t *self, point_t pos) {
     typedef cell_t line[self->dims.w];
     typedef line boardarr[self->dims.h];
     boardarr *arr = (void*)self->board;
@@ -157,6 +167,11 @@ void    active_helper(board_t *self, point_t pos) {
     }
 }
 
+
+/*! \brief Change active cell's state
+
+ *  \param self is the state of board
+ */
 void    active(board_t *self) {
     typedef cell_t line[self->dims.w];
     typedef line boardarr[self->dims.h];
@@ -171,6 +186,11 @@ void    active(board_t *self) {
     active_helper(self, self->cursor);    
 }
 
+
+/*! \brief Change cursor state
+
+ *  \param self is the state of board 
+ */
 int		endgame(board_t *self) {
 	if (self->defeat)
 		return -1;
@@ -179,6 +199,11 @@ int		endgame(board_t *self) {
 	return 0;
 }
 
+
+
+/*! \brief free the board
+ *  \param board is the state of board 
+ */
 void    free_board(board_t *board){
     free(board->board);
     free(board);
