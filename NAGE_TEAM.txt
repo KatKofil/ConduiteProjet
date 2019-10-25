@@ -1,0 +1,218 @@
+*   commit 90f22fa40e82fc8d14d571741c37c172fdf51aa4
+|\  Merge: ed3555a f4523c2
+| | Author: KatKofil <34063524+KatKofil@users.noreply.github.com>
+| | Date:   Fri Oct 25 15:32:25 2019 +0200
+| | 
+| |     Merge pull request #1 from KatKofil/dev_state
+| |     
+| |     Dev state
+| |   
+| *   commit f4523c2c684684c5dbca8be8a18fb7d0de18c574
+| |\  Merge: 56c76e7 08d5f54
+| | | Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| | | Date:   Fri Oct 25 15:23:17 2019 +0200
+| | | 
+| | |     Merge branch 'dev_state' of https://github.com/KatKofil/ConduiteProjet into dev_state
+| | | 
+| | * commit 08d5f54758dcf790fbb9021b70abd92ad9dc1d24
+| | | Author: Kofil <kat.kofil@yahoo.fr>
+| | | Date:   Fri Oct 25 15:20:58 2019 +0200
+| | | 
+| | |     finish state docs
+| | | 
+| * | commit 56c76e7f204e4901294c88e48c55290656a11749
+| |/  Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| |   Date:   Fri Oct 25 15:22:34 2019 +0200
+| |   
+| |       LA DOCUMENTATION
+| | 
+| * commit 63ad76fe0d9534ef737fb3feb2ce6d990644a40c
+| | Author: Kofil <kat.kofil@yahoo.fr>
+| | Date:   Fri Oct 25 15:18:34 2019 +0200
+| | 
+| |     finish state docs
+| | 
+| * commit e6a37ffd587297160c5256768ab416866bd745be
+| | Author: Kofil <kat.kofil@yahoo.fr>
+| | Date:   Fri Oct 25 15:02:53 2019 +0200
+| | 
+| |     Somem state docs
+| | 
+| * commit e920c5e4361a076cd1392694fcaf9c36d35e77c7
+| | Author: Kofil <kat.kofil@yahoo.fr>
+| | Date:   Fri Oct 25 14:32:59 2019 +0200
+| | 
+| |     header docs
+| | 
+| * commit 67764c75350db8dcc8711d9128783ab4da152d96
+| | Author: Kofil <kat.kofil@yahoo.fr>
+| | Date:   Fri Oct 25 14:06:07 2019 +0200
+| | 
+| |     Add free
+| | 
+| * commit feae166a17722d6e33e6dd96e54bd90222a08178
+| | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | Date:   Fri Oct 25 13:33:21 2019 +0200
+| | 
+| |     Update Doxyfile
+| |   
+| *   commit d49c8e5430b33239fa7c3e0c52916dd2dfce9aa2
+| |\  Merge: b28ae7b 456470d
+| | | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | | Date:   Fri Oct 25 13:27:57 2019 +0200
+| | | 
+| | |     Merge display code
+| | |   
+| | *   commit 456470d4a3ab0f6f7f8c9d3ea7da323adb0e2de6
+| | |\  Merge: 9c54ea7 4b4985d
+| | | | Author: aimu97 <aimuna.ayadi97@gmail.com>
+| | | | Date:   Fri Oct 25 11:50:49 2019 +0200
+| | | | 
+| | | |      Explication
+| | | | 
+| | | * commit 4b4985d6627dd3d6ef05d471560475214b99a9df
+| | | | Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| | | | Date:   Fri Oct 25 11:17:17 2019 +0200
+| | | | 
+| | | |     sans un printf de verif
+| | | | 
+| | * | commit 9c54ea7aae64c0fd56a58eec64558bc73ea34497
+| | |/  Author: aimu97 <aimuna.ayadi97@gmail.com>
+| | |   Date:   Fri Oct 25 11:48:20 2019 +0200
+| | |   
+| | |        Explication
+| | | 
+| * | commit b28ae7b422b08b7dbd0fc64257be8deeab09c130
+| | | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | | Date:   Fri Oct 25 13:27:04 2019 +0200
+| | | 
+| | |     Add Doxyfile
+| | | 
+| * | commit c4d44c0169a71691dad3d7bc1b823479d37743ce
+| | | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | | Date:   Fri Oct 25 13:26:49 2019 +0200
+| | | 
+| | |     Update CMakeLists.txt
+| | | 
+| * | commit c2acfeec3b79b81b8e2d6ba05db49fa9c2767413
+| |/  Author: nbouteme <nbouteme@users.noreply.github.com>
+| |   Date:   Fri Oct 25 13:18:08 2019 +0200
+| |   
+| |       Minor fixes...
+| | 
+| * commit acacd28447e8ebe556191aa4687d607102a77698
+| | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | Date:   Fri Oct 25 11:14:50 2019 +0200
+| | 
+| |     Corrige le malloc
+| | 
+| * commit e34934cc0bca1e97f16c7d8d82e97495c1b16a28
+| | Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| | Date:   Fri Oct 25 11:11:55 2019 +0200
+| | 
+| |     le cmakelist lul
+| |   
+| *   commit dd555d0b7651378373ba3403cfe945060a0a45e2
+| |\  Merge: c6ed80d f722c66
+| | | Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| | | Date:   Fri Oct 25 11:10:38 2019 +0200
+| | | 
+| | |     lolMerge branch 'dev_state' of https://github.com/KatKofil/ConduiteProjet into dev_state
+| | | 
+| | * commit f722c66f1d08b63bbfaccabf88e834148935b90d
+| | | Author: Kofil <kat.kofil@yahoo.fr>
+| | | Date:   Fri Oct 25 11:07:31 2019 +0200
+| | | 
+| | |     Add bombes
+| | | 
+| | * commit 30dc3fa8263e4487705be5d4529ad16237ae8d03
+| | | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | | Date:   Fri Oct 25 10:56:15 2019 +0200
+| | | 
+| | |     Fonction d'activation
+| | | 
+| * | commit c6ed80d91fb3ae97be198cb6fee14f2a0b2bb337
+| | | Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| | | Date:   Fri Oct 25 11:09:34 2019 +0200
+| | | 
+| | |     lol
+| | |   
+| * |   commit 78117635ee24bb72f2025b7715d176ddea52abcc
+| |\ \  Merge: e6ccd9b 2971a8f
+| | |/  Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| | |   Date:   Fri Oct 25 10:32:29 2019 +0200
+| | |   
+| | |       Merge branch 'dev_state' of https://github.com/KatKofil/ConduiteProjet into dev_state
+| | | 
+| | * commit 2971a8f62eb69101eae5aa4173b30e706ae288b4
+| | | Author: aimu97 <aimuna.ayadi97@gmail.com>
+| | | Date:   Fri Oct 25 10:19:26 2019 +0200
+| | | 
+| | |     Implémentation de la gestion du terminal et de la boucle de jeu
+| | |   
+| | *   commit 3fb7c6dcbd9e089d9593e69b995122807bd693fb
+| | |\  Merge: 51df45b d5f2e29
+| | | | Author: Kofil <kat.kofil@yahoo.fr>
+| | | | Date:   Fri Oct 25 10:05:35 2019 +0200
+| | | | 
+| | | |     merged
+| | | | 
+| | | * commit d5f2e291a0d44d45a102ea764e2df686983b574c
+| | | | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | | | Date:   Fri Oct 25 09:32:59 2019 +0200
+| | | | 
+| | | |     Documente board.h
+| | | | 
+| | | * commit fffc0f224b5c2e42e8d8dccafbfeed8705fd4710
+| | | | Author: nbouteme <nbouteme@users.noreply.github.com>
+| | | | Date:   Fri Oct 25 09:10:11 2019 +0200
+| | | | 
+| | | |     Remove structure attribute
+| | | | 
+| | * | commit 51df45bae2c2cb52b78a091a22699dab49c19376
+| | |/  Author: Kofil <kat.kofil@yahoo.fr>
+| | |   Date:   Fri Oct 25 10:02:24 2019 +0200
+| | |   
+| | |       Add flag / start of active
+| | | 
+| | * commit f18450aaec1a40a0815144b9b57ae323302c972b
+| | | Author: Kofil <kat.kofil@yahoo.fr>
+| | | Date:   Thu Oct 24 16:22:24 2019 +0200
+| | | 
+| | |     Fix border
+| | | 
+| | * commit 7e01447abb84ffc6e28c4422309b0096a78bee62
+| | | Author: Kofil <kat.kofil@yahoo.fr>
+| | | Date:   Thu Oct 24 16:11:47 2019 +0200
+| | | 
+| | |     add manip_cursor
+| | | 
+| * | commit e6ccd9bcb1beb3768b4fb409c353f51619d17e70
+| |/  Author: gglaive <gglaive@rutherfordium.mime.univ-paris8.fr>
+| |   Date:   Fri Oct 25 10:32:12 2019 +0200
+| |   
+| |       conflicts
+| | 
+| * commit 2956a5f2e0b9b53cc61b22d6b01c8b54aad249de
+|/  Author: Kofil <kat.kofil@yahoo.fr>
+|   Date:   Thu Oct 24 15:52:12 2019 +0200
+|   
+|       Add new_state
+| 
+* commit ed3555a29339661794df6909badcc9b4673e82e5
+| Author: nbouteme <nbouteme@users.noreply.github.com>
+| Date:   Thu Oct 24 15:29:54 2019 +0200
+| 
+|     Initial data structures
+| 
+* commit 8cfdb0fbe16b1ab8b89b7221426c366ff1248398
+| Author: Kofil <kat.kofil@yahoo.fr>
+| Date:   Thu Oct 24 14:37:55 2019 +0200
+| 
+|     archi
+| 
+* commit 25c76d4303d8b93ffac78389f422b25a5820067f
+  Author: KatKofil <34063524+KatKofil@users.noreply.github.com>
+  Date:   Thu Oct 24 14:00:16 2019 +0200
+  
+      Initial commit
